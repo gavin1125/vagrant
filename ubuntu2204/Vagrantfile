@@ -1,0 +1,15 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "gavin" do |gavin|
+    gavin.vm.box = "ubuntu/jammy64"
+    gavin.vm.provider "virtualbox" do |vb|
+       vb.memory = "2048"
+       vb.cpus = 2
+    end
+    #config.vm.provision :shell, inline: "apt-get -y install git"
+    #config.vm.provision :shell, inline: "apt-get -y install zsh"
+    #config.vm.provision :shell, privileged: false,
+    #   inline: "git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh"
+    #config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
+    gavin.vm.provision "shell", path: "scripts/common.sh"
+  end
+end

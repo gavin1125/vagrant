@@ -1,0 +1,12 @@
+Vagrant.configure("2") do |config|
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.no_proxy = "localhost,127.0.0.1"
+    config.apt_proxy.http = "http://43.135.158.33:8888/"
+    config.apt_proxy.https = "http://43.135.158.33:8888/"
+    config.git_proxy.http = "http://43.135.158.33:8888/"
+    config.git_proxy.https = "http://43.135.158.33:8888/"
+    config.docker_proxy.http = "http://43.135.158.33:8888/"
+    config.docker_proxy.https = "http://43.135.158.33:8888/"
+  end
+  # ... other stuff
+end
